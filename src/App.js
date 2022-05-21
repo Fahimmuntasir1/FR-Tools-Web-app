@@ -1,8 +1,20 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./Components/Pages/Home/Home";
+import LogIn from "./Components/Pages/Signup/Login/LogIn";
+import SignUp from "./Components/Pages/Signup/Login/SignUp";
+import Footer from "./Components/Sheared/Footer";
+import Navbar from "./Components/Sheared/Navbar";
+
 function App() {
   return (
     <div>
-      <h2>Hello World</h2>
-      
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/login" element={<LogIn/>}></Route>
+        <Route path="/signup" element={<SignUp/>}></Route>
+      </Routes>
+      <Footer/>
     </div>
   );
 }
