@@ -1,4 +1,5 @@
 import React from "react";
+import Banner from "../Banner/Banner";
 import BusinessSummary from "../BussinessSummary/BusinessSummary";
 import Review from "../Review";
 import Tools from "../Tools/Tools";
@@ -6,7 +7,7 @@ import Tools from "../Tools/Tools";
 const Home = () => {
   return (
     <div>
-      <h2>Home</h2>
+      <Banner />
       <Tools />
       <BusinessSummary />
       <Review />

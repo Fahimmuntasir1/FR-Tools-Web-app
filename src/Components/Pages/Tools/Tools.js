@@ -14,13 +14,13 @@ const Tools = () => {
         Tools and Equipment
       </h2>
       <div className="flex h-1 justify-center my-3 ">
-        <div class="  mx-3 bg-slate-400 w-3 card rounded-box place-items-center"></div>
-        <div class=" mx-3 bg-slate-400 w-3 card rounded-box place-items-center"></div>
-        <div class=" mx-3 bg-slate-400 w-3 card rounded-box place-items-center"></div>
+        <div className="  mx-3 bg-slate-400 w-3 card rounded-box place-items-center"></div>
+        <div className=" mx-3 bg-slate-400 w-3 card rounded-box place-items-center"></div>
+        <div className=" mx-3 bg-slate-400 w-3 card rounded-box place-items-center"></div>
       </div>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
         {tools.map((tool) => (
-          <Tool key={tool.id} tool={tool}></Tool>
+          <Tool key={tool._id} tool={tool}></Tool>
         ))}
       </div>
     </div>
