@@ -9,21 +9,24 @@ import Footer from "./Components/Sheared/Footer";
 import Navbar from "./Components/Sheared/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import RequireAuth from "./Components/Pages/Signup/RequireAuth";
+import Review from "./Components/Pages/Review";
 
 function App() {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/login" element={<LogIn/>}></Route>
-        <Route path="/signup" element={<SignUp/>}></Route>
-        <Route path="/blogs" element={<Blogs/>}></Route>
-        <Route path="/about" element={<About/>}></Route>
-        <Route path="/tools" element={<Tools/>}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/login" element={<LogIn />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/review" element={<Review />}></Route>
+        <Route path="/tools" element={<Tools />}></Route>
       </Routes>
-      <Footer/>
-      <ToastContainer/>
+      <Footer />
+      <ToastContainer />
     </div>
   );
 }

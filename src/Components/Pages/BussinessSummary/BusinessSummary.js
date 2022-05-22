@@ -3,12 +3,14 @@ import React from "react";
 const BussinessSummary = () => {
   return (
     <div className="my-5">
-      <h2 className="uppercase text-center text-4xl font-bold text-primary">
-        Millions Business trust us
-      </h2>
-      <p className="uppercase text-center font-semibold text-xl text-slate-500">
-        try to understand user expedition
-      </p>
+      <div className="mt-10">
+        <h2 className="uppercase text-center text-4xl font-bold text-primary mt-5">
+          Millions Business trust us
+        </h2>
+        <p className="uppercase text-center font-semibold text-xl text-slate-500">
+          try to understand user expedition
+        </p>
+      </div>
       <div class="stats w-full text-center stats-vertical lg:stats-horizontal shadow mt-3">
         <div class="stat">
           <div class="stat-title">Customers</div>

@@ -4,7 +4,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loading from "../../Sheared/Loading";
 
@@ -13,9 +13,12 @@ const LogIn = () => {
     useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
-  if (googleUser) {
-    console.log(googleUser);
+  if (googleUser || user) {
+    navigate(from, { replace: true });
   }
 
   const {
@@ -50,7 +53,7 @@ const LogIn = () => {
       >
         <div className="card flex-shrink-0 w-full max-w-lg shadow-xl bg-base-100">
           <div className="card-body ">
-            <h1 className="text-center font-semibold">Login</h1>
+            <h1 className="text-center font-semibold text-2xl">Login</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
                 <label className="label">

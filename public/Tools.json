@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Intel-i5-12600-K series processor",
+    "img": "https://i.ibb.co/VWprC4w/Intel-i5-12600-K-jpg-550x550.jpg",
+    "price": 239,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 900,
+    "description": "The primary task of headlights on cars is to illuminate the roadway and facilitate fatigue-free and safe driving. Headlights and their light sources are thus vehicle components that are relevant to safety..."
+  },
+  {
+    "id": 2,
+    "name": "Apacer-8gb-3200mhz super fast Ram",
+    "img": "https://i.ibb.co/C8DjxkX/Apacer-8gb-3200mhz-1-jpg-550x550.jpg",
+    "price": 70,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 1000,
+    "description": "Looking glass is a very important part of a car. You know, if you dont have a looking glass in your car, the traffic police can stop you and even fine you. In many countries, it is a law to properly attach looking glass..."
+  },
+  {
+    "id": 3,
+    "name": "Santak 1200VA Offline UPS With 2 Years Warranty",
+    "img": "https://i.ibb.co/Xyb8FXp/santak-1200va-offline-ups-review-png-550x550h.png",
+    "price": 80,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 700,
+    "description": "The Santak 1200VA Offline UPS Has A Voltage Range Of 140-300VAC And Come's With 230VAC. Santak 1200VA Has Only 9.2kg Weight.Santak 1200VA Is Super-Fast Charger Shortens The Charging Time To 2-4 Hours. "
+  },
+  {
+    "id": 4,
+    "name": "Havit HV F2050 Ultra Quiet Laptop Cooler Pad",
+    "img": "https://i.ibb.co/mDsZjFR/Havit-HV-F2050-Ultra-Quiet-Laptop-Cooler-Pad-300x300.jpg",
+    "price": 1200,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 2500,
+    "description": "A car bonnet is the metal part that covers the engine of an automobile. The term car bonnet is a British term, used primarily in England, Ireland, Scotland, Wales, India, New Zealand, Australia, etc. Bonnet comes from the Old French word bonet, which means cloth used as a headdress."
+  },
+  {
+    "id": 5,
+    "name": "Toshiba-1 TB Sata Laptop Hard Disk HDD",
+    "img": "https://i.ibb.co/SfxHfBV/Toshiba-1-TB-Sata-Laptop-Hard-Disk-HDD-300x300.jpg",
+    "price": 3900,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 1500,
+    "description": "Baby car seat mold effects the plastic car safety seat molding production output a lot. High efficiency cooling system for the plastic car safety seat mould will shorten the shot circle, as a result, save more machining cost and time. JMT concerns a lot on mold cooling system and production stability."
+  },
+  {
+    "id": 6,
+    "name": "Laptop-Stand Premium Quality Aluminum Alloy",
+    "img": "https://i.ibb.co/L8C0Gt3/Laptop-Stand-Premium-Quality-Aluminum-Alloy-300x300.jpg",
+    "price": 300,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 3000,
+    "description": "Each time your car runs, inside the engine there are thousands of small explosions happening. Each explosion produces power. It does this when it pushes against the pistons of the engine.A side effect of the explosions is that, besides producing power, they produce leftover gas too."
+  },
+  {
+    "id": 7,
+    "name": "Toshiba Laptop Adapter Charger",
+    "img": "https://i.ibb.co/hVxT6nQ/Toshiba-Laptop-Adapter-Charger-15-V-6-A-90-W-6-0mm-X-3-300x300.jpg",
+    "price": 2700,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 1600,
+    "description": "Automobiles were initially developed as self-propelled versions of horse-drawn vehicles. However, horse-drawn vehicles had been designed for relatively slow speeds, and their suspension was not well suited to the higher speeds permitted by the internal combustion engine."
+  },
+  {
+    "id": 8,
+    "name": "Battery For Dell-Latitude-5500",
+    "img": "https://i.ibb.co/zXYWY1P/Battery-For-Dell-Latitude-5500-5501-5401-5400-5511-5510-5411-5410-Precision-3541-3540-3550-Inspiron.jpg",
+    "price": 2700,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 2200,
+    "description": "The function of a “brake” in a car is to convert one type of energy into another. That is, convert movement into heat energy via friction. The brake system consists of a rotating mass that is attached to the wheel hub and a stationary portion that is attached to the axle or control arm (or generally somewhere on the vehicles suspension or frame along the axle)."
+  },
+  {
+    "id": 9,
+    "name": "Keyboard For Asus-Vivobook-S15-S530-S530-U",
+    "img": "https://i.ibb.co/yFcztXZ/Keyboard-For-Asus-Vivobook-S15-S530-S530-U-S530-UF-S530-UA-S530-F-S530-FN-S530-FA-K530-FN-Series-Lap.jpg",
+    "price": 800,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 4000,
+    "description": "On some vehicles, a windscreen washer system is also used to improve and expand the function of the wiper(s) to dry or icy conditions. This system sprays water, or an antifreeze window washer fluid, at the windscreen using several well-positioned nozzles. "
+  },
+  {
+    "id": 10,
+    "name": "DEEPCOOL MATREXX 55 MESH ADD-RGB 4F Mid Tower Gaming Case",
+    "img": "https://i.ibb.co/vJy7HFF/DEEPCOOL-MATREXX-55-MESH-Case-1-jpg-550x550.jpg",
+    "price": 100,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 2300,
+    "description": "The Front Is A Mesh Configuration. Inside The Mesh, There's A Tight Air Hole And A Non-Removable Dust Filter Configuration That Barely Shows Three Standard 120mm Fans."
+  },
+  {
+    "id": 11,
+    "name": "Walton Mouse",
+    "img": "https://i.ibb.co/ngp7knv/wms010wn-01-500x500.jpg",
+    "price": 450,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 1200,
+    "description": "Back glass also called rear window glass, rear windshield, or rear glass, is the piece of glass opposite the windshield in a vehicle. Back glass is made from tempered glass, also known as safety glass, and when broken will shatter into small, round pieces."
+  },
+  {
+    "id": 12,
+    "name": "LG 22MK600M 22 Inch IPS Borderless Full HD Monitor",
+    "img": "https://i.ibb.co/5GVfKJP/techlandbd-LG-22-MK600-M-jpg-550x550.jpg",
+    "price": 10900,
+    "minimumOrderQuantity": 50,
+    "availableQuantity": 700,
+    "description": "High Definition With True Color IPS Technology Highlights The Performance Of Liquid Crystal Displays. Response Times Are Shortened, Color Reproduction Is Improved, And Users Can View The Screen At Virtually Any Angle."
+  }
+]
