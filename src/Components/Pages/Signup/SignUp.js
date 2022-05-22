@@ -1,53 +1,16 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 const SignUp = () => {
-  const [signInWithGoogle, googleUser, googleLoading, googleError] =
-    useSignInWithGoogle(auth);
-
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
-
-  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
-  const [token] = useToken(user || googleUser);
-
-  console.log(user);
-  console.log(googleUser);
-
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-
-  if (token) {
-    navigate(from, { replace: true });
-  }
-
-  let signInErrors;
-  if (error || googleError || updateError) {
-    signInErrors = (
-      <p className="text-red-400 italic text-sm">
-        Error: {error?.message} {googleError?.message}
-        {updateError?.message}
-      </p>
-    );
-  }
-
-  if (loading || googleLoading || updating) {
-    return <Spinner />;
-  }
-
-  const onSubmit = async (data) => {
-    await createUserWithEmailAndPassword(data.email, data.password);
-    await updateProfile({ displayName: data.name });
-    console.log("profile update done");
-  };
 
   return (
     <div className="hero min-h-screen ">
@@ -58,7 +21,7 @@ const SignUp = () => {
         <div className="card flex-shrink-0 w-full max-w-lg shadow-xl bg-base-100">
           <div className="card-body ">
             <h1 className="text-center font-semibold">SignUp</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -163,7 +126,7 @@ const SignUp = () => {
               CONTINUE WITH GOOGLE
             </button>
           </div>
-          {signInErrors}
+          {/* {signInErrors} */}
         </div>
       </div>
     </div>
