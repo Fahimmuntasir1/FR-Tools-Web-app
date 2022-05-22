@@ -27,13 +27,13 @@ const Navbar = () => {
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Tools</a>
+              <Link to="/tools">Tools</Link>
             </li>
             <li>
-              <a>Item 2</a>
+              <Link to="/blogs">Blogs</Link>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link to="/about">About</Link>
             </li>
           </ul>
         </div>
@@ -43,13 +43,13 @@ const Navbar = () => {
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
             <li>
-              <a>Tools</a>
+              <Link to="/tools">Tools</Link>
             </li>
             <li>
-              <a>Item 2</a>
+              <Link to="/blogs">Blogs</Link>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link to="/about">About</Link>
             </li>
           </ul>
         </div>
