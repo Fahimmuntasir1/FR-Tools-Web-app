@@ -1,4 +1,5 @@
 import React from "react";
+import Loading from "../../Sheared/Loading";
 import BusinessSummary from "../BussinessSummary/BusinessSummary";
 
 const Home = () => {

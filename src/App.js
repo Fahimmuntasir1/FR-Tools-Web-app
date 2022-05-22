@@ -7,6 +7,8 @@ import SignUp from "./Components/Pages/Signup/SignUp";
 import Tools from "./Components/Pages/Tools/Tools";
 import Footer from "./Components/Sheared/Footer";
 import Navbar from "./Components/Sheared/Navbar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path="/tools" element={<Tools/>}></Route>
       </Routes>
       <Footer/>
+      <ToastContainer/>
     </div>
   );
 }

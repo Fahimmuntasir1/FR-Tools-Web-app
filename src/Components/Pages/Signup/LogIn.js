@@ -1,18 +1,18 @@
 import React from "react";
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
+import Loading from "../../Sheared/Loading";
 
 const LogIn = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-      ] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
 
   if (googleUser) {
     console.log(googleUser);
@@ -24,9 +24,22 @@ const LogIn = () => {
     handleSubmit,
   } = useForm();
 
+  if (loading || googleLoading) {
+    return <Loading />;
+  }
+
+  let signInErrors;
+  if (error || googleError) {
+    signInErrors = (
+      <p className="text-red-400 italic text-sm">
+        Error: {error?.message} {googleError?.message}
+      </p>
+    );
+  }
 
   const onSubmit = (data) => {
     console.log(data);
+    signInWithEmailAndPassword(data.email, data.password);
   };
 
   return (
@@ -130,7 +143,7 @@ const LogIn = () => {
             >
               CONTINUE WITH GOOGLE
             </button>
-            {/* {signInErrors} */}
+            {signInErrors}
           </div>
         </div>
       </div>

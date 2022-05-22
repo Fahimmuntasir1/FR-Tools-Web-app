@@ -1,9 +1,18 @@
+import { signOut } from "firebase/auth";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, NavLink } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+
+  const handleSignOut = () => {
+    signOut(auth);
+  };
+
   return (
-    <div class="navbar bg-base-100">
+    <div class="navbar bg-base-200">
       <div class="navbar-start">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -27,41 +36,57 @@ const Navbar = () => {
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/tools">Tools</Link>
+              <NavLink className="mx-3" to="/tools">
+                Tools
+              </NavLink>
             </li>
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <NavLink className="mx-3" to="/blogs">
+                Blogs
+              </NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink className="mx-3" to="/about">
+                About
+              </NavLink>
             </li>
           </ul>
         </div>
-        <Link to="/" class="btn btn-ghost normal-case text-xl">
-          daisyUI
+        <Link to="/" class="btn btn-ghost text-xl font-bold">
+          FR - Tools
         </Link>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
             <li>
-              <Link to="/tools">Tools</Link>
+              <NavLink className="mx-2" to="/tools">
+                Tools
+              </NavLink>
             </li>
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <NavLink className="mx-2" to="/blogs">
+                Blogs
+              </NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink className="mx-2" to="/about">
+                About
+              </NavLink>
             </li>
           </ul>
         </div>
       </div>
 
       <div class="navbar-end">
-        <Link to="login" className="btn btn-outline btn-secondary mx-2">
-          Log in
-        </Link>
-        <Link to="signup" className="btn btn-outline btn-primary mr-3">
-          Sign up
-        </Link>
+        {!user && (
+          <div className="flex">
+            <NavLink to="login" className="btn btn-outline  btn-secondary mx-2">
+              Log in
+            </NavLink>
+            <NavLink to="signup" className="btn btn-outline btn-primary mr-3">
+              Sign up
+            </NavLink>
+          </div>
+        )}
         <div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">
             <div class="w-10 rounded-full">
@@ -73,17 +98,19 @@ const Navbar = () => {
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a class="justify-between">
+              <NavLink to="/profile" class="justify-between">
                 Profile
                 <span class="badge">New</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a>Dashboard</a>
+              <NavLink to="/dashboard">Dashboard</NavLink>
             </li>
-            <li>
-              <a>Logout</a>
-            </li>
+            {user && (
+              <li>
+                <button onClick={handleSignOut}>Logout</button>
+              </li>
+            )}
           </ul>
         </div>
       </div>
