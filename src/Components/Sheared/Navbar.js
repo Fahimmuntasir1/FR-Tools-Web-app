@@ -46,13 +46,13 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="mx-3" to="/review">
-                Review
+              <NavLink className="mx-3" to="/about">
+                About
               </NavLink>
             </li>
             <li>
-              <NavLink className="mx-3" to="/about">
-                About
+              <NavLink className="mx-3" to="/portfolio">
+                My Portfolio
               </NavLink>
             </li>
           </ul>
@@ -73,13 +73,13 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="mx-2" to="/review">
-                Review
+              <NavLink className="mx-2" to="/about">
+                About
               </NavLink>
             </li>
             <li>
-              <NavLink className="mx-2" to="/about">
-                About
+              <NavLink className="mx-3" to="/portfolio">
+                My Portfolio
               </NavLink>
             </li>
           </ul>
@@ -102,19 +102,20 @@ const Navbar = () => {
         <div className="dropdown dropdown-end">
           <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src="https://api.lorem.space/image/face?hash=33791" alt="" />
+              <img
+                src={
+                  user.photoURL
+                    ? user.photoURL
+                    : `https://i.ibb.co/PMQQ6Kz/icon-user-default.png`
+                }
+                alt=""
+              />
             </div>
           </label>
           <ul
             tabIndex="0"
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <NavLink to="/profile" className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </NavLink>
-            </li>
             <li>{user && <NavLink to="/dashboard">Dashboard</NavLink>}</li>
             <div className="lg:hidden">
               {!user && (

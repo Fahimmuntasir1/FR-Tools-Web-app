@@ -18,7 +18,7 @@ const Banner = () => {
         <h3 className="uppercase text-sm  font-bold ">
           find the best parts for your pc and workstation
         </h3>
-        <button class="btn btn-accent">Shop now </button>
+        <button className="btn btn-accent">Shop now </button>
       </div>
     </div>
   );

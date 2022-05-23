@@ -3,23 +3,42 @@ import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div class="drawer drawer-mobile ">
-      <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col items-center justify-center">
-        <h2 className="uppercase text-2xl">DashBoard</h2>
-        <Outlet />
+    <div className="drawer drawer-mobile ">
+      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content m-3">
         <label
-          for="my-drawer-2"
-          class="btn btn-primary drawer-button lg:hidden"
+          tabIndex="0"
+          htmlFor="my-drawer-2"
+          className="btn btn-ghost drawer-button lg:hidden flex justify-end align-text-top"
         >
-          Open drawer
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />
+          </svg>
         </label>
+        <h2 className="uppercase text-4xl font-semibold text-secondary py-2">
+          Welcome to DashBoard
+        </h2>
+        <Outlet />
       </div>
-      <div class="drawer-side">
-        <label for="my-drawer-2" class="drawer-overlay"></label>
-        <ul class="menu p-4 overflow-y-auto w-80 bg-yellow-100 text-base-content">
+      <div className="drawer-side">
+        <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+        <ul className="menu p-4 overflow-y-auto w-80 bg-yellow-50 text-base-content">
           <li>
             <Link to="myProfile">My Profile</Link>
+          </li>
+          <li>
+            <Link to="myOrders">My Orders</Link>
           </li>
           <li>
             <Link to="manageOrders">Manage All Orders</Link>
@@ -31,7 +50,7 @@ const Dashboard = () => {
             <Link to="makeAdmin">Make Admin</Link>
           </li>
           <li>
-            <Link to="manageProducts">Manage Products</Link>
+            <Link to="addReview">Add A Review</Link>
           </li>
         </ul>
       </div>

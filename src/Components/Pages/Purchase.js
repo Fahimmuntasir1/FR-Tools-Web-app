@@ -50,12 +50,12 @@ const Purchase = () => {
         <div className=" mx-3 bg-slate-400 w-3 card rounded-box place-items-center"></div>
       </div>
 
-      <div class=" lg:flex lg:justify-between bg-base-100 ">
+      <div className=" lg:flex lg:justify-between bg-base-100 ">
         <div className="w-1/3">
           <img src={img} alt="Album" />
         </div>
-        <div class="card-body w-2/3">
-          <h2 class="card-title text-2xl">{name}</h2>
+        <div className="card-body w-2/3">
+          <h2 className="card-title text-2xl">{name}</h2>
           <small className="font-bold">
             Price :{" "}
             <span className="text-yellow-500 font-bold text-xl">${price}</span>{" "}
@@ -106,7 +106,7 @@ const Purchase = () => {
             type="number"
             name="quantity"
             placeholder="Add Quantity (pcs)"
-            class="input input-bordered w-full "
+            className="input input-bordered w-full "
           />
           <input
             type="submit"
