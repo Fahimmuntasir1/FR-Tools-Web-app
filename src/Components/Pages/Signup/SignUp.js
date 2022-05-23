@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
   useCreateUserWithEmailAndPassword,
@@ -9,8 +9,12 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Loading from "../../Sheared/Loading";
+import useToken from "../../../hooks/useToken";
 
 const SignUp = () => {
+  const location = useLocation();
+  const navigate = useNavigate()
+  const from = location.state?.from?.pathname || "/";
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
 
@@ -24,6 +28,12 @@ const SignUp = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  const [token] = useToken(googleUser || user);
+
+  if (token) {
+    navigate(from, { replace: true });
+  }
 
   if (googleUser || user) {
     console.log(googleUser || user);

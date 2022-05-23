@@ -104,7 +104,7 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 src={
-                  user.photoURL
+                  user
                     ? user.photoURL
                     : `https://i.ibb.co/PMQQ6Kz/icon-user-default.png`
                 }
