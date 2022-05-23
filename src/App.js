@@ -12,6 +12,12 @@ import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./Components/Pages/Signup/RequireAuth";
 import Review from "./Components/Pages/Review";
 import Purchase from "./Components/Pages/Purchase";
+import Dashboard from "./Components/Pages/Dashboard/Dashboard";
+import MyProfile from './Components/Pages/Dashboard/MyProfile'
+import ManageOrders from './Components/Pages/Dashboard/ManageOrders'
+import AddProducts from './Components/Pages/Dashboard/AddProducts'
+import MakeAdmin from './Components/Pages/Dashboard/MakeAdmin'
+import ManageProducts from './Components/Pages/Dashboard/ManageProducts'
 
 function App() {
   return (
@@ -25,6 +31,21 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/review" element={<Review />}></Route>
         <Route path="/tools" element={<Tools />}></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<MyProfile />}></Route>
+          <Route path="myProfile" element={<MyProfile />}></Route>
+          <Route path="manageOrders" element={<ManageOrders />}></Route>
+          <Route path="addProduct" element={<AddProducts />}></Route>
+          <Route path="makeAdmin" element={<MakeAdmin />}></Route>
+          <Route path="manageProducts" element={<ManageProducts />}></Route>
+        </Route>
         <Route
           path="/purchase/:id"
           element={

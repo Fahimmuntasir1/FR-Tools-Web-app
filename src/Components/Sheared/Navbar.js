@@ -46,7 +46,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="mx-3" to="/#review">
+              <NavLink className="mx-3" to="/review">
                 Review
               </NavLink>
             </li>
@@ -58,7 +58,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl font-bold">
-          FR - Tools
+          FR - Computers
         </Link>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -87,16 +87,18 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end">
-        {!user && (
-          <div className="flex">
-            <NavLink to="login" className="btn btn-outline   mx-2">
-              Log in
-            </NavLink>
-            <NavLink to="signup" className="btn btn-outline btn-accent mr-3">
-              Sign up
-            </NavLink>
-          </div>
-        )}
+        <div className="hidden lg:block">
+          {!user && (
+            <div className="flex">
+              <NavLink to="login" className="btn btn-outline   mx-2">
+                Log in
+              </NavLink>
+              <NavLink to="signup" className="btn btn-outline btn-accent mr-3">
+                Sign up
+              </NavLink>
+            </div>
+          )}
+        </div>
         <div className="dropdown dropdown-end">
           <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
@@ -113,9 +115,22 @@ const Navbar = () => {
                 <span className="badge">New</span>
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/dashboard">Dashboard</NavLink>
-            </li>
+            <li>{user && <NavLink to="/dashboard">Dashboard</NavLink>}</li>
+            <div className="lg:hidden">
+              {!user && (
+                <div className="flex flex-col">
+                  <NavLink to="login" className="btn btn-outline   mx-2">
+                    Log in
+                  </NavLink>
+                  <NavLink
+                    to="signup"
+                    className="btn btn-outline btn-accent mr-3"
+                  >
+                    Sign up
+                  </NavLink>
+                </div>
+              )}
+            </div>
             {user && (
               <li>
                 <button onClick={handleSignOut}>Logout</button>
