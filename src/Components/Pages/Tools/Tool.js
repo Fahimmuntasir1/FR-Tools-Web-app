@@ -14,7 +14,7 @@ const Tool = ({ tool }) => {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <img className="w-72" src={img} alt="Shoes" />
+        <img className="w-80" src={img} alt="Shoes" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
@@ -26,7 +26,7 @@ const Tool = ({ tool }) => {
           <br />
           <small>Min Order Quantity : {minimumOrderQuantity} pcs</small>
         </div>
-        <small>{description}</small>
+        <small>{description.slice(0, 100)}...</small>
         <div className="card-actions justify-end mb-0">
           <Link to={`/purchase/${_id}`}>
             <button className="btn btn-primary text-white">Purchase Now</button>

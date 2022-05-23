@@ -18,8 +18,8 @@ const Tools = () => {
         <div className=" mx-3 bg-slate-400 w-3 card rounded-box place-items-center"></div>
         <div className=" mx-3 bg-slate-400 w-3 card rounded-box place-items-center"></div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
-        {tools.map((tool) => (
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {tools.slice(0, 6).map((tool) => (
           <Tool key={tool._id} tool={tool}></Tool>
         ))}
       </div>
