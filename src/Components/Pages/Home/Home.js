@@ -1,7 +1,8 @@
 import React from "react";
 import Banner from "../Banner/Banner";
 import BusinessSummary from "../BussinessSummary/BusinessSummary";
-import Review from "../Review";
+import MyReviewMap from "../MyReviewMap";
+
 import Tools from "../Tools/Tools";
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
       <Banner />
       <Tools />
       <BusinessSummary />
-      <Review />
+      <MyReviewMap />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -6,6 +6,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import useToken from "../../../hooks/useToken";
 import Loading from "../../Sheared/Loading";
 
 const LogIn = () => {
@@ -17,15 +18,19 @@ const LogIn = () => {
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
-  if (googleUser || user) {
-    navigate(from, { replace: true });
-  }
+  const [token] = useToken(googleUser || user);
 
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
 
   if (loading || googleLoading) {
     return <Loading />;

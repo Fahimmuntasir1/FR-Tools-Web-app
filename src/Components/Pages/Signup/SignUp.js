@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -13,7 +13,7 @@ import useToken from "../../../hooks/useToken";
 
 const SignUp = () => {
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
@@ -31,9 +31,11 @@ const SignUp = () => {
 
   const [token] = useToken(googleUser || user);
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
 
   if (googleUser || user) {
     console.log(googleUser || user);

@@ -5,7 +5,6 @@ import auth from "../../firebase.init";
 
 const Purchase = () => {
   const [user] = useAuthState(auth);
-  console.log(user);
   const { id } = useParams();
   const [purchase, setPurchase] = useState({});
   const {
@@ -18,8 +17,28 @@ const Purchase = () => {
     minimumOrderQuantity,
   } = purchase;
 
+  const [updateQuantity, setUpdateQuantity] = useState(0);
+
   const handlePurchaseProduct = (e) => {
     e.preventDefault();
+    const quantity = e.target.quantity.value;
+    const updatedQuantity = availableQuantity - quantity;
+
+
+    const update = { updatedQuantity };
+    fetch(`http://localhost:5000/update/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(update),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          setUpdateQuantity(updateQuantity + 1);
+        }
+      });
 
     const purchasedInfo = {
       productId: _id,
@@ -31,7 +50,6 @@ const Purchase = () => {
       userPhone: e.target.phone.value,
       userAddress: e.target.address.value,
     };
-    console.log(purchasedInfo);
   };
 
   useEffect(() => {
@@ -91,18 +109,21 @@ const Purchase = () => {
             className="input input-bordered w-full "
           />
           <input
+            required
             type="text"
             name="address"
             placeholder="Your address here"
             className="input input-bordered w-full"
           />
           <input
+            required
             type="number"
             name="phone"
             placeholder="Enter phone here"
             className="input input-bordered w-full "
           />
           <input
+            required
             type="number"
             name="quantity"
             placeholder="Add Quantity (pcs)"
