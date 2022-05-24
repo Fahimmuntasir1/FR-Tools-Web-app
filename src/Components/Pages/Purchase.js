@@ -50,6 +50,18 @@ const Purchase = () => {
       userPhone: e.target.phone.value,
       userAddress: e.target.address.value,
     };
+
+    fetch(" http://localhost:5000/order", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(purchasedInfo),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
   };
 
   useEffect(() => {
