@@ -21,6 +21,7 @@ import ManageProducts from "./Components/Pages/Dashboard/ManageProducts";
 import MyOrders from "./Components/Pages/Dashboard/MyOrders";
 import AddReview from "./Components/Pages/Dashboard/AddReview";
 import MyPortfolio from "./Components/Pages/MyPortfolio";
+import NotFound from "./Components/Pages/NotFound";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+      <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
       <ToastContainer />
