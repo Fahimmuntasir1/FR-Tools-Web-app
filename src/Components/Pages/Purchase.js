@@ -24,7 +24,6 @@ const Purchase = () => {
     const quantity = e.target.quantity.value;
     const updatedQuantity = availableQuantity - quantity;
 
-
     const update = { updatedQuantity };
     fetch(`http://localhost:5000/update/${id}`, {
       method: "PUT",
