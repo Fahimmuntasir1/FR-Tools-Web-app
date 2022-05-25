@@ -26,10 +26,10 @@ const Purchase = () => {
     const quantity = e.target.quantity.value;
 
     if (quantity < minimumOrderQuantity) {
-      return toast("quantity can't be smaller then minimum Order Quantity");
+      return toast.error("quantity can't be smaller then minimum Order Quantity");
     }
     if (quantity > availableQuantity) {
-      return toast("quantity can't be bigger then available quantity");
+      return toast.error("quantity can't be bigger then available quantity");
     }
 
     const updatedQuantity = availableQuantity - quantity;
@@ -69,7 +69,7 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast("Order confirmed");
+        toast.success("Order confirmed");
         navigate("/");
       });
   };
@@ -152,6 +152,7 @@ const Purchase = () => {
             className="input input-bordered w-full "
           />
           <input
+          
             type="submit"
             value="Purchase Now"
             className="btn btn-accent w-full "
