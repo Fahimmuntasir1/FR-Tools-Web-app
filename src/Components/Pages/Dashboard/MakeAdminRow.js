@@ -6,7 +6,9 @@ const MakeAdminRow = ({ user,index }) => {
     <tr>
       <th>{index+1}</th>
       <td>{email}</td>
-      <td>Quality Control Specialist</td>
+      <td>
+        <button class="btn btn-sm btn-secondary text-white">Make Admin</button>
+      </td>
       <td>
         <button class="btn btn-sm btn-secondary text-white">Make Admin</button>
       </td>

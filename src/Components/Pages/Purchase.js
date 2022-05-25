@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { toast } from "react-toastify";
 
 const Purchase = () => {
   const [user] = useAuthState(auth);
@@ -18,10 +19,19 @@ const Purchase = () => {
   } = purchase;
 
   const [updateQuantity, setUpdateQuantity] = useState(0);
+  const navigate = useNavigate();
 
   const handlePurchaseProduct = (e) => {
     e.preventDefault();
     const quantity = e.target.quantity.value;
+
+    if (quantity < minimumOrderQuantity) {
+      return toast("quantity can't be smaller then minimum Order Quantity");
+    }
+    if (quantity > availableQuantity) {
+      return toast("quantity can't be bigger then available quantity");
+    }
+
     const updatedQuantity = availableQuantity - quantity;
 
     const update = { updatedQuantity };
@@ -57,10 +67,11 @@ const Purchase = () => {
       },
       body: JSON.stringify(purchasedInfo),
     })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast("Order confirmed");
+        navigate("/");
+      });
   };
 
   useEffect(() => {

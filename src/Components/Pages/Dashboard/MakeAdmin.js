@@ -9,7 +9,12 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5000/user").then((res) => res.json())
+    fetch("http://localhost:5000/user", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken ")}`,
+      },
+    }).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading />;
@@ -28,9 +33,13 @@ const MakeAdmin = () => {
             </tr>
           </thead>
           <tbody>
-            {
-              users.map((user, index )=> <MakeAdminRow key={user._id} user={user} index={index}></MakeAdminRow>)
-            }
+            {users?.map((user, index) => (
+              <MakeAdminRow
+                key={user._id}
+                user={user}
+                index={index}
+              ></MakeAdminRow>
+            ))}
           </tbody>
         </table>
       </div>
