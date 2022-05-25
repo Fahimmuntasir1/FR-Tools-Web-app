@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     fetch("http://localhost:5000/user", {
       method: "GET",
       headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken ")}`,
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     }).then((res) => res.json())
   );
@@ -38,6 +38,7 @@ const MakeAdmin = () => {
                 key={user._id}
                 user={user}
                 index={index}
+                refetch={refetch}
               ></MakeAdminRow>
             ))}
           </tbody>
