@@ -10,10 +10,17 @@ const MakeAdminRow = ({ user, index, refetch }) => {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 403) {
+          toast.error("You are not authorized to do this");
+        }
+        return res.json();
+      })
       .then((data) => {
-        refetch();
-        toast("User added as Admin");
+        if (data.modifiedCount > 0) {
+          refetch();
+          toast.success("User added as Admin");
+        }
       });
   };
   return (
@@ -24,19 +31,16 @@ const MakeAdminRow = ({ user, index, refetch }) => {
         {role !== "admin" && (
           <button
             onClick={makeAdmin}
-            class="btn btn-sm btn-secondary text-white"
+            className="btn btn-sm btn-secondary text-white"
           >
             Make Admin
           </button>
         )}
         {role === "admin" && (
-          <button disabled class="uppercase mx-5">
+          <button disabled className="uppercase mx-5">
             Admin
           </button>
         )}
-      </td>
-      <td>
-        <button class="btn btn-sm btn-secondary text-white">Make Admin</button>
       </td>
     </tr>
   );

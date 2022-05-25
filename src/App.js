@@ -22,6 +22,7 @@ import MyOrders from "./Components/Pages/Dashboard/MyOrders";
 import AddReview from "./Components/Pages/Dashboard/AddReview";
 import MyPortfolio from "./Components/Pages/MyPortfolio";
 import NotFound from "./Components/Pages/NotFound";
+import RequireAdmin from "./Components/Pages/Signup/RequireAdmin";
 
 function App() {
   return (
@@ -47,9 +48,23 @@ function App() {
           <Route index element={<MyProfile />}></Route>
           <Route path="myProfile" element={<MyProfile />}></Route>
           <Route path="myOrders" element={<MyOrders />}></Route>
-          <Route path="manageOrders" element={<ManageOrders />}></Route>
+          <Route
+            path="manageOrders"
+            element={
+              <RequireAdmin>
+                <ManageOrders />
+              </RequireAdmin>
+            }
+          ></Route>
           <Route path="addProduct" element={<AddProducts />}></Route>
-          <Route path="makeAdmin" element={<MakeAdmin />}></Route>
+          <Route
+            path="makeAdmin"
+            element={
+              <RequireAdmin>
+                <MakeAdmin />
+              </RequireAdmin>
+            }
+          ></Route>
           <Route path="manageProducts" element={<ManageProducts />}></Route>
           <Route path="addReview" element={<AddReview />}></Route>
         </Route>
@@ -61,7 +76,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-      <Route path="*" element={<NotFound />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
       <ToastContainer />
