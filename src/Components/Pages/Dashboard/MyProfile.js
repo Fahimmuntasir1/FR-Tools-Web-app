@@ -1,20 +1,34 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 
 const MyProfile = () => {
   const [user] = useAuthState(auth);
-  const { displayName, photoURL, email, address, phone, education, linkedin } =
+  console.log(user);
+  const { displayName, photoURL, email} =
     user;
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userData = {
+      address: e.target.address.value,
+      phone: e.target.phone.value,
+      education: e.target.education.value,
+      linkedin: e.target.linkedin.value,
+    };
+
+    fetch(`http://localhost:5000/user/${email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("user updated");
+      });
   };
 
   return (
@@ -38,29 +52,25 @@ const MyProfile = () => {
           <div class="card-body">
             <h2 class="card-title">{displayName}</h2>
             {email && <h3>{email}</h3>}
-            {address && <h3>Address: {address}</h3>}
+            {/* {address && <h3>Address: {address}</h3>}
             {phone && <h3>Phone: {phone}</h3>}
             {education && <h3>Education: {education}</h3>}
-            {linkedin &&<h3>LinkedIn: {linkedin}</h3>}
+            {linkedin && <h3>LinkedIn: {linkedin}</h3>} */}
           </div>
         </div>
       </div>
 
       <div>
         <h2 className="text-center text-2xl">Update Your Profile</h2>
-        <form className="w-1/3 ml-10 my-5" onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit} className="w-1/3 ml-10 my-5">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Address</span>
             </label>
             <input
-              {...register("address", {
-                required: {
-                  value: true,
-                  message: "Address",
-                },
-              })}
-              type="name"
+              required
+              name="address"
+              type="text"
               placeholder="Enter Your Address"
               className="input input-bordered"
             />
@@ -70,12 +80,8 @@ const MyProfile = () => {
               <span className="label-text">Education</span>
             </label>
             <input
-              {...register("education", {
-                required: {
-                  value: true,
-                  message: "Enter your name",
-                },
-              })}
+              required
+              name="education"
               type="text"
               placeholder="Education"
               className="input input-bordered"
@@ -86,13 +92,9 @@ const MyProfile = () => {
               <span className="label-text">Phone Number</span>
             </label>
             <input
-              {...register("phone", {
-                required: {
-                  value: true,
-                  message: "Enter your name",
-                },
-              })}
-              type="text"
+              required
+              name="phone"
+              type="number"
               placeholder="Phone Number"
               className="input input-bordered"
             />
@@ -102,12 +104,8 @@ const MyProfile = () => {
               <span className="label-text">LinkedIn</span>
             </label>
             <input
-              {...register("linkedin", {
-                required: {
-                  value: true,
-                  message: "Enter your name",
-                },
-              })}
+              required
+              name="linkedin"
               type="text"
               placeholder=" LinkedIn profile link"
               className="input input-bordered"
