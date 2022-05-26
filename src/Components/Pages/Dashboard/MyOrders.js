@@ -4,18 +4,27 @@ import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const MyOrders = () => {
-  const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
+  const [orders, setOrders] = useState([]);
+  console.log(orders);
   useEffect(() => {
-    const email = user.email;
-    fetch(`http://localhost:5000/orders?email=${email}`)
+    const email = user?.email;
+    fetch(`http://localhost:5000/myOrders?email=${email}`,{
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, []);
+      .then((data) => {
+        setOrders(data);
+        console.log(data);
+      });
+  }, [user]);
   const handleOrderCancel = (id) => {
     const proceed = window.confirm("Delete product from your orders?");
     if (proceed) {
-      fetch(`http://localhost:5000/orders/${id}`, {
+      fetch(`http://localhost:5000/MyOrders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -36,16 +45,18 @@ const MyOrders = () => {
             <tr>
               <th></th>
               <th>Product Name</th>
+              <th>Quantity</th>
               <th>Price</th>
               <th>Payment</th>
               <th>Cancel Order</th>
             </tr>
           </thead>
           <tbody>
-            {orders.map((order, index) => (
+            {orders?.map((order, index) => (
               <tr key={order._id}>
                 <th>{index + 1}</th>
-                <td>{order.name}</td>
+                <td>{order.productName}</td>
+                <td>{order.quantity}</td>
                 <td className="font-semibold">${order.price}</td>
                 <td>
                   {order.price && !order.paid && (
