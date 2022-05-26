@@ -35,7 +35,33 @@ const MyPortfolio = () => {
         <h2 className="text-center uppercase text-2xl font-semibold my-10 text-lime-400">
           My Recently Created Web app
         </h2>
-        1.
+
+        <div className="flex flex-col text-center text-xl ">
+          <a
+            className="hover:text-blue-500 hover:link my-5"
+            href=" https://smart-electronics.netlify.app/"
+          >
+            1.Smart Electronics
+          </a>
+          <a
+            className="hover:text-blue-400 hover:link my-5"
+            href=" https://book-reviewer.netlify.app/"
+          >
+            2.Book Reviewer app
+          </a>
+          <a
+            className="hover:text-blue-400 hover:link my-5"
+            href=" https://bike-warehouse-b8017.web.app/"
+          >
+            3. Bike WareHouse app
+          </a>
+          <a
+            className="hover:text-blue-400 hover:link my-5"
+            href=" https://independent-service-prov-a109e.web.app/"
+          >
+            4. Independent Service Provider
+          </a>
+        </div>
       </div>
     </div>
   );
