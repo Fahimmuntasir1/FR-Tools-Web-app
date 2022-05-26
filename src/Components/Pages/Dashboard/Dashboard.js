@@ -42,9 +42,10 @@ const Dashboard = () => {
           <li>
             <Link to="myProfile">My Profile</Link>
           </li>
-          <li>
+          { !admin &&
+            <li>
             <Link to="myOrders">My Orders</Link>
-          </li>
+          </li>}
           {admin &&
             <li>
               <Link to="manageOrders">Manage All Orders</Link>

@@ -6,10 +6,9 @@ import auth from "../../../firebase.init";
 const MyOrders = () => {
   const [user] = useAuthState(auth);
   const [orders, setOrders] = useState([]);
-  console.log(orders);
   useEffect(() => {
     const email = user?.email;
-    fetch(`http://localhost:5000/myOrders?email=${email}`,{
+    fetch(`http://localhost:5000/myOrders?email=${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

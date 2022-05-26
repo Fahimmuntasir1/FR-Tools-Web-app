@@ -101,11 +101,12 @@ const Navbar = () => {
           )}
         </div>
         <div className="dropdown dropdown-end">
+          <h2 className="inline m-2">{user?.displayName}</h2>
           <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img
                 src={
-                  user
+                  user?.photoURL
                     ? user.photoURL
                     : `https://i.ibb.co/PMQQ6Kz/icon-user-default.png`
                 }
