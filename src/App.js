@@ -23,6 +23,7 @@ import AddReview from "./Components/Pages/Dashboard/AddReview";
 import MyPortfolio from "./Components/Pages/MyPortfolio";
 import NotFound from "./Components/Pages/NotFound";
 import RequireAdmin from "./Components/Pages/Signup/RequireAdmin";
+import WeProvide from "./Components/Pages/WeProvide";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/review" element={<Review />}></Route>
         <Route path="/tools" element={<Tools />}></Route>
         <Route path="/portfolio" element={<MyPortfolio />}></Route>
+        <Route path="/weProvide" element={<WeProvide />}></Route>
         <Route
           path="/dashboard"
           element={

@@ -4,6 +4,7 @@ import BusinessSummary from "../BussinessSummary/BusinessSummary";
 import MyReviewMap from "../MyReviewMap";
 
 import Tools from "../Tools/Tools";
+import WeProvide from "../WeProvide";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner />
       <Tools />
       <BusinessSummary />
+      <WeProvide/>
       <MyReviewMap />
     </div>
   );

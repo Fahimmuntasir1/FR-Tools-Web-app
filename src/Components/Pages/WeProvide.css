@@ -1,0 +1,28 @@
+.border {
+    width: 30%;
+    margin: auto;
+    background: #71a3ff;
+  }
+  .why-us img {
+    width: 100px;
+    display: block;
+    margin: 10px auto;
+  }
+  .my-card {
+    text-align: center;
+    width: 350px;
+  }
+  .my-card p {
+    margin: 10px;
+  }
+  
+  @media screen and (max-width: 667px) {
+    .why-us {
+      display: block;
+    }
+    .my-card {
+      width: 80%;
+      margin: auto;
+    }
+  }
+  
