@@ -42,11 +42,11 @@ const Dashboard = () => {
           <li>
             <Link to="myProfile">My Profile</Link>
           </li>
-          { !admin &&
+          { 
             <li>
             <Link to="myOrders">My Orders</Link>
           </li>}
-          {admin &&
+          {
             <li>
               <Link to="manageOrders">Manage All Orders</Link>
             </li>
@@ -54,7 +54,7 @@ const Dashboard = () => {
           <li>
             <Link to="addProduct">Add A Product</Link>
           </li>
-          {admin &&
+          {
             <li>
               <Link to="makeAdmin">Make Admin</Link>
             </li>
