@@ -9,7 +9,7 @@ const AddProducts = () => {
     handleSubmit,
   } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/tools", {
+    fetch("https://whispering-eyrie-39167.herokuapp.com/tools", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -21,7 +21,6 @@ const AddProducts = () => {
         console.log(result);
         toast("User Added Successfully");
       });
-
   };
 
   return (

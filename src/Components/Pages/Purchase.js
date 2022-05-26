@@ -26,7 +26,9 @@ const Purchase = () => {
     const quantity = e.target.quantity.value;
 
     if (quantity < minimumOrderQuantity) {
-      return toast.error("quantity can't be smaller then minimum Order Quantity");
+      return toast.error(
+        "quantity can't be smaller then minimum Order Quantity"
+      );
     }
     if (quantity > availableQuantity) {
       return toast.error("quantity can't be bigger then available quantity");
@@ -35,7 +37,7 @@ const Purchase = () => {
     const updatedQuantity = availableQuantity - quantity;
 
     const update = { updatedQuantity };
-    fetch(`http://localhost:5000/update/${id}`, {
+    fetch(`https://whispering-eyrie-39167.herokuapp.com/update/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -60,7 +62,7 @@ const Purchase = () => {
       userAddress: e.target.address.value,
     };
 
-    fetch(" http://localhost:5000/order", {
+    fetch(" https://whispering-eyrie-39167.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -75,7 +77,7 @@ const Purchase = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tools/${id}`)
+    fetch(`https://whispering-eyrie-39167.herokuapp.com/tools/${id}`)
       .then((res) => res.json())
       .then((data) => setPurchase(data));
   }, []);
@@ -152,7 +154,6 @@ const Purchase = () => {
             className="input input-bordered w-full "
           />
           <input
-          
             type="submit"
             value="Purchase Now"
             className="btn btn-accent w-full "

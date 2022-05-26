@@ -4,7 +4,7 @@ import MyReviewCard from "./MyReviewCard";
 const MyReviewMap = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch("https://whispering-eyrie-39167.herokuapp.com/review")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

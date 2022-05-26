@@ -8,12 +8,15 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     const email = user?.email;
-    fetch(`http://localhost:5000/myOrders?email=${email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://whispering-eyrie-39167.herokuapp.com/myOrders?email=${email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -23,7 +26,7 @@ const MyOrders = () => {
   const handleOrderCancel = (id) => {
     const proceed = window.confirm("Delete product from your orders?");
     if (proceed) {
-      fetch(`http://localhost:5000/MyOrders/${id}`, {
+      fetch(`https://whispering-eyrie-39167.herokuapp.com/MyOrders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

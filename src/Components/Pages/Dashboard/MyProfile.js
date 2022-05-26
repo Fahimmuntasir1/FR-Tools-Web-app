@@ -6,8 +6,7 @@ import auth from "../../../firebase.init";
 const MyProfile = () => {
   const [user] = useAuthState(auth);
   console.log(user);
-  const { displayName, photoURL, email} =
-    user;
+  const { displayName, photoURL, email } = user;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +17,7 @@ const MyProfile = () => {
       linkedin: e.target.linkedin.value,
     };
 
-    fetch(`http://localhost:5000/user/${email}`, {
+    fetch(`https://whispering-eyrie-39167.herokuapp.com/user/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
