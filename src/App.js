@@ -38,7 +38,7 @@ function App() {
         <Route path="/review" element={<Review />}></Route>
         <Route path="/tools" element={<Tools />}></Route>
         <Route path="/portfolio" element={<MyPortfolio />}></Route>
-        <Route path="/weProvide" element={<WeProvide />}></Route>
+        <Route path="/weprovide" element={<WeProvide />}></Route>
         <Route
           path="/dashboard"
           element={
