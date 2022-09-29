@@ -27,7 +27,7 @@ import WeProvide from "./Components/Pages/WeProvide";
 
 function App() {
   return (
-    <div>
+    <div className="bg-gray-100">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
