@@ -8,7 +8,7 @@ const useAdmin = (user) => {
     const email = user?.email;
     console.log(email);
     if (email) {
-      fetch(`https://whispering-eyrie-39167.herokuapp.com/admin/${email}`, {
+      fetch(`https://fr-tools-house.onrender.com/admin/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -35,7 +35,7 @@ const useAdmin = (user) => {
     const email = user?.email;
     console.log(email);
     if (email) {
-      fetch(`https://whispering-eyrie-39167.herokuapp.com/admin/${email}`, {
+      fetch(`https://fr-tools-house.onrender.com/admin/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

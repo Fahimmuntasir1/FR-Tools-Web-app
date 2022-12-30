@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
 const Purchase = () => {
   const [user] = useAuthState(auth);
@@ -37,7 +37,7 @@ const Purchase = () => {
     const updatedQuantity = availableQuantity - quantity;
 
     const update = { updatedQuantity };
-    fetch(`https://whispering-eyrie-39167.herokuapp.com/update/${id}`, {
+    fetch(`https://fr-tools-house.onrender.com/update/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -62,7 +62,7 @@ const Purchase = () => {
       userAddress: e.target.address.value,
     };
 
-    fetch(" https://whispering-eyrie-39167.herokuapp.com/order", {
+    fetch(" https://fr-tools-house.onrender.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -77,7 +77,7 @@ const Purchase = () => {
   };
 
   useEffect(() => {
-    fetch(`https://whispering-eyrie-39167.herokuapp.com/tools/${id}`)
+    fetch(`https://fr-tools-house.onrender.com/tools/${id}`)
       .then((res) => res.json())
       .then((data) => setPurchase(data));
   }, []);

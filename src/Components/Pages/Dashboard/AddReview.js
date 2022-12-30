@@ -8,7 +8,7 @@ const AddReview = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    const url = `https://whispering-eyrie-39167.herokuapp.com/review`;
+    const url = `https://fr-tools-house.onrender.com/review`;
     fetch(url, {
       method: "POST",
       headers: {

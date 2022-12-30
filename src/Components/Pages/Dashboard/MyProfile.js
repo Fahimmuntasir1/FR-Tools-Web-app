@@ -17,7 +17,7 @@ const MyProfile = () => {
       linkedin: e.target.linkedin.value,
     };
 
-    fetch(`https://whispering-eyrie-39167.herokuapp.com/user/${email}`, {
+    fetch(`https://fr-tools-house.onrender.com/user/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

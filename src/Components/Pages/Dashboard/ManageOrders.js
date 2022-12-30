@@ -4,7 +4,7 @@ import AllOrdersRow from "./AllOrdersRow";
 const ManageOrders = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch("https://whispering-eyrie-39167.herokuapp.com/orders")
+    fetch("https://fr-tools-house.onrender.com/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
